@@ -1,0 +1,38 @@
+## Rails App
+APP_NAME: 'blog'
+SECRET_KEY_BASE: '060b427e45996e236109c002fa988058773f95333f969918df23b3879d24974873cd3f621dbe966bf5fda339b5e81061bc8087de1635e6b47ec99ce970283cd5'
+
+## Devise
+SECRET_PEPPER: 'c67c0b9a2542f0bd938fcef6616ae6f42206fed953bdd5de82fd122e4ada5d76fdc32f3742cbdcbb25b3113aeffab4725a910f98cb92c3d4820a8502785f2193'
+
+## Database
+DATABASE_URL: 'postgres://postgres:password@localhost/blog_development?pool=80'
+
+## Solr
+SOLR_URL: 'http://localhost:8983/solr/default'
+REDIS_URL: 'redis://localhost:6379/10'
+
+## Paperclip
+PAPERCLIP_HASH_SECRET: 'f89f34285e0141863bf2c10337f480c94cc7904bd3210fd3f8209a1c0daabdea7557b0df1826a6e0828e15cce29bc9b50842ea007e5b3999b0ad3f1ee4b83813'
+
+## Mailer
+#DEVISE_MAILER_FROM: 'no-reply@accounts.revampcaes.com'
+#MAILER_FROM: 'no-reply@accounts.revampcaes.com'
+
+#MAILER_SUBJECT: ''
+#REPLY_TO: 'cdasia.demo@gmail.com'
+#
+#MAILER_ADDRESS: 'smtp.gmail.com'
+#MAILER_PORT: '587'
+#MAILER_DOMAIN: 'gmail.com'
+#MAILER_USERNAME: 'cdasia.demo@gmail.com'
+#MAILER_PASSWORD: 'Cdujas9Lia'
+#
+#MAILER_URL_HOST: 'localhost:5000'
+#URL_HOST: 'localhost:5000'
+
+production:
+  RAILS_SERVE_STATIC_FILES: ''
+
+test:
+  DATABASE_URL: 'postgres://postgres:password@localhost/blog_test?pool=50'

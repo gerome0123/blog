@@ -1,0 +1,13 @@
+en:
+  translations:
+    sessions:
+      OAUTH:
+        EMAIL:
+          LABEL: "Email"
+        USER_NAME:
+          LABEL: "Username"
+        PASSWORD:
+          LABEL: "Password"
+        LOG_IN: "Log In"
+        ERROR:
+          REQUIRED: "This is required."
