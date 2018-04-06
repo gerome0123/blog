@@ -1,7 +1,7 @@
 # config valid only for current version of Capistrano
 lock '3.6.1'
 
-set :application, 'sample'
+set :application, 'blog'
 set :repo_url, 'git@github.com:gerome0123/blog.git'
 set :branch, 'master'
 set :deploy_to, -> { "/var/www/#{fetch(:application)}" }

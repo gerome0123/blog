@@ -12,8 +12,6 @@ class ApplicationController < ActionController::Base
   #
   before_action :authenticate_author!
 
-  alias current_author current_user
-
   rescue_from CanCan::AccessDenied, with: :unauthorized
 
   private
