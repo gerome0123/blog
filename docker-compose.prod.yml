@@ -52,6 +52,7 @@ services:
     command: bundle exec puma -C config/puma.rb
     links:
       - redis
+      - postgresql
       - solr
     volumes_from:
       - data
