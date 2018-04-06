@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
   #
   before_action :authenticate_user!
   
-  alias currrnt_author current_user
+  alias current_author current_user
 
   rescue_from CanCan::AccessDenied, with: :unauthorized
 
