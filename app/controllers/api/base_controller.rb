@@ -12,7 +12,7 @@ module Api
     respond_to :json
 
     before_action :authenticate_user!
-    alias authenticate_author authenticate_user
+    alias current_author current_user
 
     before_action :set_paper_trail_whodunnit
 
