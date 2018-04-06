@@ -11,7 +11,9 @@ module Api
 
     respond_to :json
 
-    before_action :authenticate_author!
+    before_action :authenticate_user!
+    alias authenticate_author authenticate_user
+
     before_action :set_paper_trail_whodunnit
 
     rescue_from ActiveRecord::RecordNotFound, with: :not_found
