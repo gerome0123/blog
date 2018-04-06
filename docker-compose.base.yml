@@ -1,0 +1,50 @@
+---
+version: '2'
+services:
+  data:
+    image: busybox
+    volumes:
+      - .:/var/www
+  load_balancer:
+    image: dockercloud/haproxy
+    ports:
+      - '4000:80'
+    networks:
+      - front_tier
+  postgresql:
+    restart: always
+    image: sameersbn/postgresql:9.5
+    env_file:
+      - ./docker/postgresql/.env
+    networks:
+      - back_tier
+  redis:
+    build: ./docker/redis
+    restart: always
+    command: redis-server
+    networks:
+      - back_tier
+  solr:
+    build: ./docker/solr
+    networks:
+      - back_tier
+  web:
+    restart: always
+    build: ./docker/web
+    networks:
+      - front_tier
+      - back_tier
+    environment:
+      - PORT=80
+    expose:
+      - '80'
+    env_file:
+      - ./docker/web/.env
+  worker:
+    restart: always
+    build: ./docker/web
+    command: bundle exec sidekiq config/sidekiq.yml
+    env_file:
+      - ./docker/web/.env
+    networks:
+      - back_tier

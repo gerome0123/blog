@@ -1,0 +1,76 @@
+---
+version: '2'
+services:
+  data:
+    extends:
+      file: docker-compose.base.yml
+      service: data
+    volumes:
+      - /var/www/.bundle
+      - /bundle
+      - ./log:/var/www/log
+      - ./public/assets:/var/www/public/assets
+      - ./public/ckeditor_assets:/var/www/public/ckeditor_assets
+      - ./public/pdfs:/var/www/public/pdfs
+      - ./public/system:/var/www/public/system
+      - ./tmp/pids:/var/www/tmp/pids
+      - /var/www/tmp
+      - /var/www/vendor/bundle
+  load_balancer:
+    extends:
+      file: docker-compose.base.yml
+      service: load_balancer
+    links:
+      - web
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+  postgresql:
+    extends:
+      file: docker-compose.base.yml
+      service: postgresql
+    mem_limit: 400000000
+    volumes:
+      - /var/lib/postgresql
+  redis:
+    extends:
+      file: docker-compose.base.yml
+      service: redis
+    volumes:
+      - /var/lib/redis
+  solr:
+    extends:
+      file: docker-compose.base.yml
+      service: solr
+    mem_limit: 500000000
+    volumes:
+      - /var/lib/solr
+  web:
+    restart: 'no'
+    extends:
+      file: docker-compose.base.yml
+      service: web
+    command: bundle exec puma -C config/puma.rb
+    links:
+      - postgresql
+      - solr
+      - redis
+    volumes_from:
+      - data
+    mem_limit: 1000000000
+  worker:
+    extends:
+      file: docker-compose.base.yml
+      service: worker
+    restart: 'no'
+    links:
+      - postgresql
+      - solr
+      - redis
+    volumes_from:
+      - data
+    mem_limit: 500000000
+networks:
+  front_tier:
+    driver: bridge
+  back_tier:
+    driver: bridge

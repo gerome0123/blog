@@ -11,14 +11,8 @@ RouteProvider = ($locationProvider, $routeProvider) ->
     controller: "HomeCtrl"
     controllerAs: "ctrl"
 
-  bookConfig =
-    templateUrl: "/templates/books/index"
-    controller: "BookCtrl"
-    controllerAs: "ctrl"
-
   $routeProvider
     .when "/", homeConfig
-    .when "/books", bookConfig
     .otherwise
       redirectTo: "/"
 
