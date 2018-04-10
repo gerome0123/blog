@@ -1,6 +1,6 @@
 html,
 body {
-  background-color: $main-bg-color;
+  background-color: #e5e5e5;
   height: 100%;
 }
 
@@ -11,14 +11,15 @@ body {
 .header,
 .footer,
 .side-nav {
-  background-color: $main-sections-bg-color;
+  background-color: #2e2e2e;
   position: relative;
 }
 
 .header {
+  background-color: #fff;
   height: auto;
   width: 100%;
-  z-index: 10;
+  z-index: 100;
 
   .banner {
     height: inherit;
@@ -27,7 +28,7 @@ body {
 }
 
 .footer {
-  color: $footer-color;
+  color: #fff;
   padding: 0 50px;
 
   .md-caption {

@@ -1,12 +1,16 @@
-div.side-nav.md-whiteframe-2dp layout="column"
+md-sidenav.md-sidenav-left.main-side-nav md-component-id="mainSideNav" md-whiteframe="4" md-is-open="$root.isMainSideNavOpen"
   section layout="column" flex=""
-    div.user-banner.md-whiteframe-3dp layout="row" layout-align="center center"
+    md-toolbar.md-primary ng-class="$root.isMainSideNavOpen ? 'adjust' : ''"
+      div.md-toolbar-tools
+        span flex=""
+        md-button.md-icon-button ng-click="$root.toggleSideNav('mainSideNav')"
+          md-icon.material-icons style="color: rgba(255,255,255,0.87);" chevron_left
     md-content.side-menu flex=""
-      md-list-item ng-href="/" target="_self"
+      md-list-item ng-href="/"
         div
           md-icon.material-icons home
           span.md-mr-l-15 Home
       md-list-item ng-href="#{destroy_user_session_path}" target="_self"
-        div
+        div.sub
           md-icon.material-icons exit_to_app
           span.md-mr-l-15 Log Out

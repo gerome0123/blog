@@ -7,24 +7,24 @@ $float-vals: (left, right);
   $val-key: str-slice($val, 1, 1);
 
   .#{$float-prefix}-#{$val-key} {
-    float: $val !important;
+    float: $val;
   }
 }
 
 // Margin
 $margin-prefix: #{$main-prefix}-mr;
 $margin-types: (top, left, bottom, right);
-$margin-vals: (0, 5, 10, 15, 20);
+$margin-vals: (0, 5, 10, 15, 20, 25, 30, 35, 40);
 @each $val in $margin-vals {
   .#{$margin-prefix}-#{$val} {
-    margin: $val !important;
+    margin: #{$val}px !important;
   }
 
   @each $type in $margin-types {
     $type-key: str-slice($type, 1, 1);
 
     .#{$margin-prefix}-#{$type-key}-#{$val} {
-      margin-#{$type}: #{$val}px !important;
+      margin-#{$type}: #{$val}px;
     }
   }
 }
@@ -37,14 +37,14 @@ $overflow-vals: (visible, hidden, scroll, auto, inherit);
   $val-key: str-slice($val, 1, 1);
 
   .#{$overflow-prefix}-#{$val-key} {
-    overflow: $val!important;
+    overflow: $val;
   }
 
   @each $type in $overflow-types {
     $type-key: str-slice($type, 1, 1);
 
     .#{$overflow-prefix}-#{$type-key}-#{$val-key} {
-      overflow-#{$type}: $val!important;
+      overflow-#{$type}: $val;
     }
   }
 }
@@ -52,17 +52,17 @@ $overflow-vals: (visible, hidden, scroll, auto, inherit);
 // Padding
 $padding-prefix: #{$main-prefix}-pd;
 $padding-types: (top, left, bottom, right);
-$padding-vals: (0, 5, 10, 15, 20);
+$padding-vals: (0, 5, 10, 15, 20, 25, 30, 35, 40);
 @each $val in $padding-vals {
   .#{$padding-prefix}-#{$val} {
-    padding: $val !important;
+    padding: #{$val}px !important;
   }
 
   @each $type in $padding-types {
     $type-key: str-slice($type, 1, 1);
 
     .#{$padding-prefix}-#{$type-key}-#{$val} {
-      padding-#{$type}: #{$val}px !important;
+      padding-#{$type}: #{$val}px;
     }
   }
 }
@@ -78,6 +78,10 @@ $position-vals: (absolute, fixed, static, relative);
   }
 }
 
+.#{$main-prefix}-inline-block {
+  display: inline-block;
+}
+
 // Text Align
 $text-align-prefix: #{$main-prefix}-ta;
 $text-align-vals: (right, center, left);
@@ -87,30 +91,4 @@ $text-align-vals: (right, center, left);
   .#{$text-align-prefix}-#{$val-key} {
     text-align: $vals !important;
   }
-}
-
-.#{$main-prefix}-dp-in-blx {
-  display: inline-block !important;
-}
-
-.#{$main-prefix}-dp-in-flx {
-  display: inline-flex!important;
-}
-
-.#{$main-prefix}-bg-trans {
-  background: transparent!important;
-}
-
-
-
-.#{$main-prefix}-fnt-sz-20 {
-  font-size: 20px!important;
-}
-
-.#{$main-prefix}-fnt-wt-b {
-  font-weight: bold!important;
-}
-
-.#{$main-prefix}-ws-nwp {
-  white-space: nowrap!important;
 }

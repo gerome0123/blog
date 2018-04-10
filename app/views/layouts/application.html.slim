@@ -1,9 +1,16 @@
 doctype html
 html.application ng-app="SampleApp" md-theme="{{ defaultTheme }}" ng-csp="" ng-strict-di=""
   = render 'shared/head'
-  body.container layout="column" flex="" ng-cloak=""
-    = render 'shared/header'
-    div layout="row" flex=""
-      = render 'shared/side_nav'
-      div#main-content layout="column" layout-margin="" ng-view="" flex=""
+  body.container layout="row" flex="" ng-cloak=""
+    = render 'shared/side_nav'
+    div layout="column" role="main" flex=""
+      md-toolbar.main-toolbar ng-class="$root.isMainSideNavOpen ? 'adjust' : ''" style="background-color:#006064!important;"
+        div.md-toolbar-tools
+          md-button.md-icon-button ng-click="$root.toggleSideNav('mainSideNav')" ng-hide="$root.isMainSideNavOpen"
+            md-icon.material-icons style="color: rgba(255,255,255,0.87);" menu
+          span flex=""
+          h1.md-title #{ENV['APP_NAME']}
+      md-progress-linear.main-loading.md-warn md-mode="indeterminate" ng-if="$root.stillLoading" ng-class="$root.isMainSideNavOpen ? 'adjust' : ''"
+      md-content.main-container layout="column" layout-xs="column" ng-class="$root.isMainSideNavOpen ? 'adjust' : ''"
+        div layout-padding="" ng-view="" ng-cloak="" flex="noshrink"
   = render 'shared/foot'

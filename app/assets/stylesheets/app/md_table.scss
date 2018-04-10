@@ -1,41 +1,168 @@
-.md-table {
-  min-width: 100%;
-  border-collapse: collapse;
-}
-
 .md-table tbody tr:hover, .md-table tbody tr:focus {
-  cursor:pointer;
-  background-color: rgba(0, 0, 0, 0.05);
+  cursor: pointer;
 }
 
-.md-table-header {
-  border-bottom: 1px solid rgb(230,230,230);
-  color: rgb(130,130,130);
-  font-size: 0.75em;
-  font-weight: 700;
-  padding: 16px 16px 16px 0;
-  text-align: center;
+.cursor tbody td:hover, .cursor tbody td:focus {
+  cursor: default;
 }
 
-.md-table-header a{
-  text-decoration: none;
-  color: inherit;
+.pointer tbody td:hover, .pointer tbody td:focus {
+  cursor: pointer;
 }
 
-.md-table-content {
-  white-space: nowrap;
-  font-size: 13px;
-  height: 20px;
+th.position {
+  position: sticky;
+  top: -2px;
+  z-index: 5;
+}
 
-  &.ng-binding {
-    white-space: normal;
-    width: 15%;
-    padding: 16px 16px 16px 0;
+th.md-table-header {
+  &.legal {
+    background-color: #006864;
+    color: white;
+  }
+  &.law {
+    background-color: #007064;
+    color: white;
+  }
+
+  &.maximum {
+    background-color: #008064;
+    color: white;
+  }
+
+  &.minimum {
+    background-color: #007564;
+    color: white;
+  }
+
+  &.offense {
+    background-color: #006544;
+    color: white;
+  }
+
+  &.penalty {
+    background-color: #008544;
+    color: white;
+  }
+
+  &.un {
+    background-color: #009064;
+    color: white;
+  }
+
+  &.sub-header {
+    font-size: 14px;
+    padding: 5px 5px 5px 8px;
+  }
+
+  &.header {
+    white-space: nowrap;
+    padding: 20px 20px 20px 20px;
+  }
+
+  &.border {
+    white-space: nowrap;
+    border: 3px solid rgb(0, 101, 68);
   }
 }
 
-.md-table-td-more {
-  max-width: 72px;
-  width: 72px;
-  padding: 16px;
+.md-table-content-row {
+  &:nth-child(2n) {
+    background-color: #efefef;
+  }
+
+  &:hover, &:focus {
+    background-color: rgba(158,158,158,0.2)!important;
+  }
+}
+
+.md-table-content {
+  &.indent {
+    padding: 0 10px 0 10px;
+    border: 3px solid rgb(0, 101, 68);
+  }
+
+  &.ws-nw {
+    width: 25%;
+    white-space: normal;
+    padding: 16px 16px 16px 30px;
+  }
+
+  &.wrap{
+    white-space: nowrap;
+  }
+}
+
+.md-table-content.adjust {
+  text-align: left;
+  max-width: 500px;
+  min-width: 500px;
+  word-wrap: break-word;
+
+  &:w-300 {
+    max-width: 300px!important;
+    min-width: 300px!important;
+  }
+}
+
+.reports {
+  .md-table-content-row {
+    &:not(:last-child) {
+      border-bottom: 1px solid rgb(150, 150, 150);
+      background-color: inherit;
+    }
+
+    &:hover, &:focus {
+      background-color: rgba(158,158,158,0.2)!important;
+    }
+  }
+
+  td.align {
+    vertical-align: text-top;
+  }
+
+  td.adjust {
+    text-align: left;
+    max-width: 500px;
+    min-width: 500px;
+    word-wrap: break-word;
+    white-space: normal;
+  }
+
+  &.wrap{
+    white-space: nowrap;
+  }
+}
+
+.sub-line-table td.adjust {
+  text-align: left;
+  max-width: 500px;
+  min-width: 500px;
+  word-wrap: break-word;
+  white-space: normal;
+}
+
+td adjust{
+  white-space: normal;
+  word-wrap: break-word;
+  max-width: 500px;
+}
+
+td.md-table-content.penalty_fine{
+  white-space: normal;
+  min-width: 160px;
+  max-width: 160px;
+  word-wrap: break-word;
+}
+
+.bold{
+  font-weight:bold;
+  color:darkblue;
+}
+
+.md-table.offenses {
+  .md-table-header {
+    text-align: center;
+  }
 }

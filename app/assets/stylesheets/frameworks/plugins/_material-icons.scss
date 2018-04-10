@@ -48,14 +48,3 @@
   &.md-light { color: rgba(255, 255, 255, 1); }
   &.md-light.md-inactive { color: rgba(255, 255, 255, .3); }
 }
-
-// Text Align
-$text-align-prefix: #{$main-prefix}-ta;
-$text-align-vals: (right, center, left);
-@each $vals in $text-align-vals {
-  $val-key: str-slice($vals, 1, 1);
-
-  .#{$text-align-prefix}-#{$val-key} {
-    text-align: $vals !important;
-  }
-}

@@ -1,0 +1,93 @@
+@import 'variables';
+
+.side-nav {
+  width: $side-nav-width!important;
+
+  .side-menu {
+    position: relative;
+  }
+}
+
+h4.title-banner {
+  position: absolute;
+  top: -35px;
+  left: 90px;
+  width: 1020px;
+  font-size: 35px;
+  color: #607D8B;
+  font-weight: bold;
+}
+
+.pagination {
+  margin: 5px;
+
+  .page {
+    border: 0;
+    outline: 0;
+    color: $pagination-font-color;
+    text-align: center;
+    display: inline-block;
+    margin: 5px;
+    padding: 4px 12px;
+    text-decoration: none;
+    line-height: 1.5em;
+
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+
+    &.active {
+      background-color: $pagination-active-bg-color;
+      color: $pagination-triggered-font-color;
+      font-weight: 600;
+    }
+
+    &:hover {
+      background-color: $pagination-hover-bg-color;
+      color: $pagination-triggered-font-color;
+
+      .material-icons {
+        color: $pagination-triggered-font-color;
+      }
+    }
+  }
+}
+
+.main-container {
+  background-color: transparent!important;
+}
+
+.main-container, .main-toolbar, .main-loading {
+  &.adjust {
+    padding-left: $side-nav-width;
+  }
+}
+
+.main-side-nav {
+  width: $side-nav-width
+}
+
+.header {
+  &.adjust {
+    left: $side-nav-width;
+    width: calc(100% - #{$side-nav-width});
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .md-sidenav-backdrop {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 599px) {
+  .main-container, .main-toolbar {
+    &.adjust {
+      padding-left: 0;
+    }
+  }
+}
+
+md-dialog-content {
+  width: 600px!important;
+}
